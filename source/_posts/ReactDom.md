@@ -22,7 +22,7 @@ invoke topLevelUpdateWarnings, container
         rootEl = get the root ReactElement from container.firstChild or document.documentElement
 
     check has init
-        if not: 
+        if not:
             invoke legacyCreateRootFromDOMContainer, container, forceHydrate(false)
                 remove all child in container
                 return ReactRoot(container, false,hydrate)
@@ -33,4 +33,18 @@ invoke topLevelUpdateWarnings, container
                                     FiberNode(tag,pendingProps, key, mode); args sort is same as callee
                                     <!-- Object.preventExtensions -->
                                     ![fiberNode](./assets/fiberNode.png)
-                            init root:   ![root](./assets/root.png)
+                            init root =  container._reactRootContainer :   ![root](./assets/root.png)
+                            invoke root.render(children,callback): ReactRoot.prototype.render
+                                work = ReactWork();
+
+## other
+
+- ReactWork 一个事件队列  类似于 Promise
+- FiberNode 重点
+- updateClassComponent
+  - constructClassInstance
+    - getDerivedStateFromProps
+  - mountClassInstance
+  - finishClassComponent
+
+- completeRoot
