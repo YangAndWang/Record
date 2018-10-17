@@ -20,4 +20,4 @@ tags:
 | Node.DOCUMENT_FRAGMENT_NODE       | 11    | DocumentFragment(node)                        |
 | Node.NOTATION_NODE	            | 12    | XML <!NOTATION ...>(node)(deprecated)         |
 
-`2,5,6,12`, `ATTRIBUTE_NODE, ENTITY_REFERENCE_NODE, ENTITY_NODE, NOTATION_NODE`
+`2,5,6,12`, `ATTRIBUTE_NODE, ENTITY_REFERENCE_NODE, ENTITY_NODE, NOTATION_NODE` have `deprecated`
