@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>ReactDom.render | Record</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ReactDomrenderrender(ReactElement,Container:HtmlElement, callback: Function)invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback validate: container     container is Html">
+<meta name="keywords" content="React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactDom.render">
+<meta property="og:url" content="http://record.learnwy.com/2018/07/09/ReactDom/index.html">
+<meta property="og:site_name" content="Record">
+<meta property="og:description" content="ReactDomrenderrender(ReactElement,Container:HtmlElement, callback: Function)invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback validate: container     container is Html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2018-10-17T11:59:09.331Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactDom.render">
+<meta name="twitter:description" content="ReactDomrenderrender(ReactElement,Container:HtmlElement, callback: Function)invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback validate: container     container is Html">
+  
+    <link rel="alternate" href="/atom.xml" title="Record" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Record</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Record Self</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://record.learnwy.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ReactDom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/ReactDom/" class="article-date">
+  <time datetime="2018-07-09T15:30:57.000Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ReactDom.render
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ReactDom"><a href="#ReactDom" class="headerlink" title="ReactDom"></a>ReactDom</h1><h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><h3 id="render-ReactElement-Container-HtmlElement-callback-Function"><a href="#render-ReactElement-Container-HtmlElement-callback-Function" class="headerlink" title="render(ReactElement,Container:HtmlElement, callback: Function)"></a>render(ReactElement,Container:HtmlElement, callback: Function)</h3><p>invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback</p>
+<pre><code>validate: container
+    container is HtmlElement or Document or Fragment or (Comment and value is &apos; react-mount-point-unstable &apos;)
+</code></pre><p>invoke topLevelUpdateWarnings, container</p>
+<pre><code>check container is react-mount-point-unstable
+    then check the container had removed not by ReactDOM.unmountComponentAtNode
+    rootEl = get the root ReactElement from container.firstChild or document.documentElement
+
+check has init
+    if not:
+        invoke legacyCreateRootFromDOMContainer, container, forceHydrate(false)
+            remove all child in container
+            return ReactRoot(container, false,hydrate)
+                createContainer,container, false,hydrate
+                    createFiberRoot,containerInfo, isAsync, hydrate
+                        uninitializedFiber = createHostRootFiber(isAsync)
+                            createFiber(HostRoot, null, null, isAsync ? AsyncMode | StrictMode : NoContext)
+                                FiberNode(tag,pendingProps, key, mode); args sort is same as callee
+                                &lt;!-- Object.preventExtensions --&gt;
+                                ![fiberNode](./assets/fiberNode.png)
+                        init root =  container._reactRootContainer :   ![root](./assets/root.png)
+                        invoke root.render(children,callback): ReactRoot.prototype.render
+                            work = ReactWork();
+</code></pre><h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><ul>
+<li>ReactWork 一个事件队列  类似于 Promise</li>
+<li>FiberNode 重点</li>
+<li><p>updateClassComponent</p>
+<ul>
+<li>constructClassInstance<ul>
+<li>getDerivedStateFromProps</li>
+</ul>
+</li>
+<li>mountClassInstance</li>
+<li>finishClassComponent</li>
+</ul>
+</li>
+<li><p>completeRoot</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://record.learnwy.com/2018/07/09/ReactDom/" data-id="cjndw13v20002gk3b2i6ad38z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/10/DvaComment/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DvaComment
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/08/ReactElement/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ReactElement</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-Work/">Code Work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-antd/">React antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work-Hand-SRM/">Work Hand SRM</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Code-Work/" style="font-size: 10px;">Code Work</a> <a href="/tags/React/" style="font-size: 20px;">React</a> <a href="/tags/React-antd/" style="font-size: 10px;">React antd</a> <a href="/tags/Work-Hand-SRM/" style="font-size: 10px;">Work Hand SRM</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/17/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/17/html-dom-node-type/">html-dom-node-type</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/07/CodeDefine/">CodeDefine</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/05/WorkHandSRM/">WorkHand</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/18/Antd-Form/">Antd_Form</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Wang Yang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
