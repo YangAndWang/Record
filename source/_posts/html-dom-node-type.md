@@ -21,3 +21,6 @@ tags:
 | Node.NOTATION_NODE	            | 12    | XML <!NOTATION ...>(node)(deprecated)         |
 
 `2,5,6,12`, `ATTRIBUTE_NODE, ENTITY_REFERENCE_NODE, ENTITY_NODE, NOTATION_NODE` have `deprecated`
+
+quote from 
+[MDN: Web technology for developers/Web APIs/Node/Node.nodeType](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType)
