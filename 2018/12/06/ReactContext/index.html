@@ -5,20 +5,19 @@
   
 
   
-  <title>ReactDom.render | Record</title>
+  <title>ReactContext | Record</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ReactDomrenderrender(ReactElement,Container:HtmlElement, callback: Function)invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback validate: container     container is Html">
-<meta name="keywords" content="React">
+  <meta name="description" content="ReactContext使用 React.createContext api当 Provider 更新value时, 如果有更改, 会查找所有子元素, 找到对应的节点后 向上直到没有父节点 每个都标记 更新时间 使用 contextTypes, getChildContext 和 childContextTypes只有当更新到 contextTypes 时才会去更新context, 如果中途 sc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ReactDom.render">
-<meta property="og:url" content="http://record.learnwy.com/2018/07/09/ReactDom/index.html">
+<meta property="og:title" content="ReactContext">
+<meta property="og:url" content="http://record.learnwy.com/2018/12/06/ReactContext/index.html">
 <meta property="og:site_name" content="Record">
-<meta property="og:description" content="ReactDomrenderrender(ReactElement,Container:HtmlElement, callback: Function)invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback validate: container     container is Html">
+<meta property="og:description" content="ReactContext使用 React.createContext api当 Provider 更新value时, 如果有更改, 会查找所有子元素, 找到对应的节点后 向上直到没有父节点 每个都标记 更新时间 使用 contextTypes, getChildContext 和 childContextTypes只有当更新到 contextTypes 时才会去更新context, 如果中途 sc">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2018-10-17T11:59:09.331Z">
+<meta property="og:updated_time" content="2018-12-06T12:56:11.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ReactDom.render">
-<meta name="twitter:description" content="ReactDomrenderrender(ReactElement,Container:HtmlElement, callback: Function)invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback validate: container     container is Html">
+<meta name="twitter:title" content="ReactContext">
+<meta name="twitter:description" content="ReactContext使用 React.createContext api当 Provider 更新value时, 如果有更改, 会查找所有子元素, 找到对应的节点后 向上直到没有父节点 每个都标记 更新时间 使用 contextTypes, getChildContext 和 childContextTypes只有当更新到 contextTypes 时才会去更新context, 如果中途 sc">
   
     <link rel="alternate" href="/atom.xml" title="Record" type="application/atom+xml">
   
@@ -69,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-ReactDom" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ReactContext" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/09/ReactDom/" class="article-date">
-  <time datetime="2018-07-09T15:30:57.000Z" itemprop="datePublished">2018-07-09</time>
+    <a href="/2018/12/06/ReactContext/" class="article-date">
+  <time datetime="2018-12-06T06:05:54.000Z" itemprop="datePublished">2018-12-06</time>
 </a>
     
   </div>
@@ -83,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ReactDom.render
+      ReactContext
     </h1>
   
 
@@ -91,73 +90,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ReactDom"><a href="#ReactDom" class="headerlink" title="ReactDom"></a>ReactDom</h1><h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><h3 id="render-ReactElement-Container-HtmlElement-callback-Function"><a href="#render-ReactElement-Container-HtmlElement-callback-Function" class="headerlink" title="render(ReactElement,Container:HtmlElement, callback: Function)"></a>render(ReactElement,Container:HtmlElement, callback: Function)</h3><p>invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback</p>
-<pre><code>validate: container
-    container is HtmlElement or Document or Fragment or (Comment and value is &apos; react-mount-point-unstable &apos;)
-</code></pre><p>invoke topLevelUpdateWarnings, container</p>
-<pre><code>check container is react-mount-point-unstable
-    then check the container had removed not by ReactDOM.unmountComponentAtNode
-    rootEl = get the root ReactElement from container.firstChild or document.documentElement
-
-check has init
-    if not:
-        invoke legacyCreateRootFromDOMContainer, container, forceHydrate(false)
-            remove all child in container
-            return ReactRoot(container, false,hydrate)
-                createContainer,container, false,hydrate
-                    createFiberRoot,containerInfo, isAsync, hydrate
-                        uninitializedFiber = createHostRootFiber(isAsync)
-                            createFiber(HostRoot, null, null, isAsync ? AsyncMode | StrictMode : NoContext)
-                                FiberNode(tag,pendingProps, key, mode); args sort is same as callee
-                                &lt;!-- Object.preventExtensions --&gt;
-                                ![fiberNode](./assets/fiberNode.png)
-                        init root =  container._reactRootContainer :   ![root](./assets/root.png)
-                        invoke root.render(children,callback): ReactRoot.prototype.render
-                            work = ReactWork();
-</code></pre><h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><ul>
-<li>ReactWork 一个事件队列  类似于 Promise</li>
-<li>FiberNode 重点</li>
-<li><p>updateClassComponent</p>
-<ul>
-<li>constructClassInstance<ul>
-<li>getDerivedStateFromProps</li>
-</ul>
-</li>
-<li>mountClassInstance</li>
-<li>finishClassComponent</li>
-</ul>
-</li>
-<li><p>completeRoot</p>
-</li>
-</ul>
+        <h1 id="ReactContext"><a href="#ReactContext" class="headerlink" title="ReactContext"></a>ReactContext</h1><h2 id="使用-React-createContext-api"><a href="#使用-React-createContext-api" class="headerlink" title="使用 React.createContext api"></a>使用 React.createContext api</h2><p>当 Provider 更新value时, 如果有更改, 会查找所有子元素, 找到对应的节点后 向上直到没有父节点 每个都标记 更新时间</p>
+<h2 id="使用-contextTypes-getChildContext-和-childContextTypes"><a href="#使用-contextTypes-getChildContext-和-childContextTypes" class="headerlink" title="使用 contextTypes, getChildContext 和 childContextTypes"></a>使用 contextTypes, getChildContext 和 childContextTypes</h2><p>只有当更新到 contextTypes 时才会去更新context, 如果中途 scu 了 会导致 context 传递 失败</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://record.learnwy.com/2018/07/09/ReactDom/" data-id="cjqajzbgj00042s3b4a499u36" class="article-share-link">Share</a>
+      <a data-url="http://record.learnwy.com/2018/12/06/ReactContext/" data-id="cjqajzbgq000d2s3bmrhsd6jh" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2018/07/10/DvaComment/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          DvaComment
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/08/ReactElement/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/11/29/React/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">ReactElement</div>
+      <div class="article-nav-title">React</div>
     </a>
   
 </nav>
