@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2021/07/10/hello-world/16107/"/>
+      <url>/2021/07/10/hello-world/16107/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ReactContext</title>
+      <link href="/2018/12/06/reactcontext/3717/"/>
+      <url>/2018/12/06/reactcontext/3717/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ReactContext"><a href="#ReactContext" class="headerlink" title="ReactContext"></a>ReactContext</h1><h2 id="使用-React-createContext-api"><a href="#使用-React-createContext-api" class="headerlink" title="使用 React.createContext api"></a>使用 React.createContext api</h2><p>当 Provider 更新value时, 如果有更改, 会查找所有子元素, 找到对应的节点后 向上直到没有父节点 每个都标记 更新时间</p><h2 id="使用-contextTypes-getChildContext-和-childContextTypes"><a href="#使用-contextTypes-getChildContext-和-childContextTypes" class="headerlink" title="使用 contextTypes, getChildContext 和 childContextTypes"></a>使用 contextTypes, getChildContext 和 childContextTypes</h2><p>只有当更新到 contextTypes 时才会去更新context, 如果中途 scu 了 会导致 context 传递 失败</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React</title>
+      <link href="/2018/11/29/react/2526/"/>
+      <url>/2018/11/29/react/2526/</url>
+      
+        <content type="html"><![CDATA[<h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><h2 id="React-Element"><a href="#React-Element" class="headerlink" title="React.Element"></a>React.Element</h2><p>{<br>    “$$typeof”: Symbol(reactType),<br>    “key”:null,<br>    “ref”:null,<br>    “type”: constructor,<br>    “props”:{},<br>    “_owner”:null,<br>    “_self”: null,<br>    “_store”:{},<br>    “_source”: {},<br>    “_store”: {},<br>}</p><h2 id="ReactDOM-render"><a href="#ReactDOM-render" class="headerlink" title="ReactDOM.render"></a>ReactDOM.render</h2><p>call: legacyRenderSubtreeIntoContainer<br>    判断是合法container</p><pre><code>!!(node &amp;&amp; (node.nodeType === ELEMENT_NODE || node.nodeType === DOCUMENT_NODE || node.nodeType === DOCUMENT_FRAGMENT_NODE || node.nodeType === COMMENT_NODE &amp;&amp; node.nodeValue === ' react-mount-point-unstable '))</code></pre><p>call: legacyCreateRootFromDOMContainer // root = container._reactRootContainer = legacyCreateRootFromDOMContainer(container, forceHydrate);</p><p>new ReactRoot<br>call createContainer<br>call createFiberRoot<br>call createHostRootFiber<br>call createFiber<br>new FiberNode<br>goto legacyRenderSubtreeIntoContainer // 回到legacyRenderSubtreeIntoContainer继续执行<br>call unbatchedUpdates<br>root.render<br>new ReactWork<br>call updateContainer<br>call updateContainerAtExpirationTime<br>call getContextForSubtree<br>call scheduleRootUpdate<br>call createUpdate</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>html-dom-node-type</title>
+      <link href="/2018/10/17/html-dom-node-type/43797/"/>
+      <url>/2018/10/17/html-dom-node-type/43797/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th>const</th><th>value</th><th>desc</th></tr></thead><tbody><tr><td>Node.ELEMENT_NODE</td><td>1</td><td>Element(node)</td></tr><tr><td>Node.ATTRIBUTE_NODE</td><td>2</td><td>Attr(deprecated)</td></tr><tr><td>Node.TEXT_NODE</td><td>3</td><td>Text for Element of Attr</td></tr><tr><td>Node.CDATA_SECTION_NODE</td><td>4</td><td>CDATASection</td></tr><tr><td>Node.ENTITY_REFERENCE_NODE</td><td>5</td><td>XML<!--ENTITY ...-->(node)(deprecated)</td></tr><tr><td>Node.ENTITY_NODE</td><td>6</td><td>XML<!--ENTITY ...-->(node)(deprecated)</td></tr><tr><td>Node.PROCESSING_INSTRUCTION_NODE</td><td>7</td><td>ProcessingInstruction <!--?xml-stylesheet ... ?--></td></tr><tr><td>Node.COMMENT_NODE</td><td>8</td><td>Comment(node)</td></tr><tr><td>Node.DOCUMENT_NODE</td><td>9</td><td>Document(node)</td></tr><tr><td>Node.DOCUMENT_TYPE_NODE</td><td>10</td><td>DocumentType(node) eg: </td></tr><tr><td>Node.DOCUMENT_FRAGMENT_NODE</td><td>11</td><td>DocumentFragment(node)</td></tr><tr><td>Node.NOTATION_NODE</td><td>12</td><td>XML <!--NOTATION ...-->(node)(deprecated)</td></tr></tbody></table><p><code>2,5,6,12</code>, <code>ATTRIBUTE_NODE, ENTITY_REFERENCE_NODE, ENTITY_NODE, NOTATION_NODE</code> have <code>deprecated</code></p><p>quote from<br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType">MDN: Web technology for developers/Web APIs/Node/Node.nodeType</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CodeDefine</title>
+      <link href="/2018/08/07/codedefine/26440/"/>
+      <url>/2018/08/07/codedefine/26440/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><h2 id="每个文件-都要有文件注释"><a href="#每个文件-都要有文件注释" class="headerlink" title="每个文件 都要有文件注释"></a>每个文件 都要有文件注释</h2><h2 id="每个方法-都要有说明"><a href="#每个方法-都要有说明" class="headerlink" title="每个方法 都要有说明"></a>每个方法 都要有说明</h2><h2 id="每个属性-都要有说明"><a href="#每个属性-都要有说明" class="headerlink" title="每个属性 都要有说明"></a>每个属性 都要有说明</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Code Work </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Antd_Form</title>
+      <link href="/2018/07/18/antd-form/49619/"/>
+      <url>/2018/07/18/antd-form/49619/</url>
+      
+        <content type="html"><![CDATA[<h1 id="antd-UI-框架的-Form-组件"><a href="#antd-UI-框架的-Form-组件" class="headerlink" title="antd UI 框架的 Form 组件"></a>antd UI 框架的 Form 组件</h1><h2 id="Form-create-options-Form-表单的配置"><a href="#Form-create-options-Form-表单的配置" class="headerlink" title="Form.create(options) Form 表单的配置"></a>Form.create(options) Form 表单的配置</h2><ol><li>fieldNameProp 在输入组件的哪个props字段上存储输入字段的name, 默认是id</li></ol><h2 id="对应-rc-form"><a href="#对应-rc-form" class="headerlink" title="对应 rc-form"></a>对应 rc-form</h2><ol><li>fieldNameProp 没有默认值</li></ol><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ol><li>@Form.create({fieldNamePorp: null}) 不让表单将id存在字段中,那么浏览器不会有自动输入</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> React antd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>DvaComment</title>
+      <link href="/2018/07/10/dvacomment/8508/"/>
+      <url>/2018/07/10/dvacomment/8508/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DvaComment"><a href="#DvaComment" class="headerlink" title="DvaComment"></a>DvaComment</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ul><li>Number    数值    {Number} [loginName] 用户的登录帐号</li><li>String    字符串  {String} [name] 用户的名称</li><li>Object    对象    {Object} [{page:number,size:number}={page:0,size:10}] 分页信息</li><li>Function  方法    {Function(id:Number):Object}</li><li>Union     组合    {Number|String}</li><li>Generics  泛型    {Promise<object>}<h3 id="修饰"><a href="#修饰" class="headerlink" title="修饰"></a>修饰</h3><h4 id="修饰类型"><a href="#修饰类型" class="headerlink" title="修饰类型"></a>修饰类型</h4><ul><li>Nullable      ?基本类型</li><li>Not Nullable  !基本类型</li></ul><h4 id="修饰名称"><a href="#修饰名称" class="headerlink" title="修饰名称"></a>修饰名称</h4><ul><li>Optional  [名称]</li><li>Default   [名称=defaultValue]</li><li>Spread    …名称</li></ul><h2 id="services"><a href="#services" class="headerlink" title="services"></a>services</h2><p>每个方法都要有注释</p><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/** * 获取所有待办事项 * @param {String} [params.name] 待办事项的名称 * @param {String} [params.comment] 待办事项的 描述/备注 * @param {Number} [params.status] 待办事项的 状态 0 -&gt; 待办, 1 -&gt; 完成, 2 -&gt; 取消 */</span><span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">todoQueryAll</span><span class="token punctuation">(</span><span class="token parameter">params</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token string">'/api/v1/todos'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>    method<span class="token operator">:</span> <span class="token string">'GET'</span><span class="token punctuation">,</span>    query<span class="token operator">:</span> params<span class="token punctuation">,</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="model"><a href="#model" class="headerlink" title="model"></a>model</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>  namespace<span class="token operator">:</span> <span class="token string">'todo'</span><span class="token punctuation">,</span>  state <span class="token operator">:</span> <span class="token punctuation">{</span>    todos<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>    currentStatus<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>  effects<span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token comment">// 获取所有的待办事项</span>    <span class="token operator">*</span><span class="token function">fetchAll</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>payload<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>call<span class="token punctuation">,</span>put<span class="token punctuation">}</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>      <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token function">getResponse</span><span class="token punctuation">(</span><span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>todoQueryAll<span class="token punctuation">,</span> payload<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span>          type<span class="token operator">:</span> <span class="token string">'updateState'</span><span class="token punctuation">,</span>          payload<span class="token operator">:</span> <span class="token punctuation">{</span>            todos<span class="token operator">:</span> res<span class="token punctuation">,</span>          <span class="token punctuation">}</span><span class="token punctuation">,</span>        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>  reducers<span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token function">updateState</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span><span class="token punctuation">{</span>payload<span class="token punctuation">}</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>      <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>        <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>        state<span class="token punctuation">,</span>        payload<span class="token punctuation">,</span>      <span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="route"><a href="#route" class="headerlink" title="route"></a>route</h2><pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx">@<span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>todo<span class="token punctuation">,</span>loading<span class="token punctuation">}</span></span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">(</span><span class="token punctuation">{</span>todo<span class="token punctuation">,</span>loading<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Todo</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span><span class="token punctuation">{</span>  <span class="token comment">/**   * 渲染待办事项页面   */</span>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">const</span> <span class="token punctuation">{</span> todo<span class="token operator">:</span> <span class="token punctuation">{</span>todos <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>currentStatus<span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token punctuation">(</span>      <span class="token function">map</span><span class="token punctuation">(</span>todos<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">todo</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isNumber</span><span class="token punctuation">(</span>currentStatus<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>          <span class="token keyword">return</span> todo<span class="token punctuation">.</span>status <span class="token operator">===</span> currentStatus <span class="token operator">?</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TodoComponent</span></span> <span class="token attr-name">todo</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token operator">:</span> <span class="token boolean">false</span>        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>          <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">TodoComponent</span></span> <span class="token attr-name">todo</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>todo<span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>        <span class="token punctuation">}</span>      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="component"><a href="#component" class="headerlink" title="component"></a>component</h2><pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">TodoComponent</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span><span class="token punctuation">{</span>  statusMap <span class="token operator">=</span> <span class="token punctuation">{</span>    <span class="token number">0</span><span class="token operator">:</span> <span class="token string">'待办'</span><span class="token punctuation">,</span>    <span class="token number">1</span><span class="token operator">:</span> <span class="token string">'已完成'</span><span class="token punctuation">,</span>    <span class="token number">2</span><span class="token operator">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">const</span> <span class="token punctuation">{</span> todo<span class="token operator">:</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span>comment<span class="token punctuation">,</span>status<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>    <span class="token keyword">const</span> <span class="token punctuation">{</span> statusMap <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token punctuation">(</span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">        </span><span class="token punctuation">{</span> name <span class="token punctuation">}</span><span class="token plain-text"> &amp;nbsp;&amp;nbsp;-&amp;nbsp;&amp;nbsp;</span><span class="token punctuation">{</span>comment<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">        </span><span class="token punctuation">{</span> statusMap<span class="token punctuation">[</span>status<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token string">'未知状态'</span> <span class="token punctuation">}</span><span class="token plain-text">  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>    <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></object></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ReactDom.render</title>
+      <link href="/2018/07/09/reactdom/54300/"/>
+      <url>/2018/07/09/reactdom/54300/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ReactDom"><a href="#ReactDom" class="headerlink" title="ReactDom"></a>ReactDom</h1><h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><h3 id="render-ReactElement-Container-HtmlElement-callback-Function"><a href="#render-ReactElement-Container-HtmlElement-callback-Function" class="headerlink" title="render(ReactElement,Container:HtmlElement, callback: Function)"></a>render(ReactElement,Container:HtmlElement, callback: Function)</h3><p>invoke legacyRenderSubtreeIntoContainer, null, element, container, false, callback</p><pre><code>validate: container    container is HtmlElement or Document or Fragment or (Comment and value is ' react-mount-point-unstable ')</code></pre><p>invoke topLevelUpdateWarnings, container</p><pre><code>check container is react-mount-point-unstable    then check the container had removed not by ReactDOM.unmountComponentAtNode    rootEl = get the root ReactElement from container.firstChild or document.documentElementcheck has init    if not:        invoke legacyCreateRootFromDOMContainer, container, forceHydrate(false)            remove all child in container            return ReactRoot(container, false,hydrate)                createContainer,container, false,hydrate                    createFiberRoot,containerInfo, isAsync, hydrate                        uninitializedFiber = createHostRootFiber(isAsync)                            createFiber(HostRoot, null, null, isAsync ? AsyncMode | StrictMode : NoContext)                                FiberNode(tag,pendingProps, key, mode); args sort is same as callee                                &lt;!-- Object.preventExtensions --&gt;                                ![fiberNode](./assets/fiberNode.png)                        init root =  container._reactRootContainer :   ![root](./assets/root.png)                        invoke root.render(children,callback): ReactRoot.prototype.render                            work = ReactWork();</code></pre><h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><ul><li><p>ReactWork 一个事件队列  类似于 Promise</p></li><li><p>FiberNode 重点</p></li><li><p>updateClassComponent</p><ul><li>constructClassInstance<ul><li>getDerivedStateFromProps</li></ul></li><li>mountClassInstance</li><li>finishClassComponent</li></ul></li><li><p>completeRoot</p></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ReactElement</title>
+      <link href="/2018/07/08/reactelement/49231/"/>
+      <url>/2018/07/08/reactelement/49231/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ReactElement"><a href="#ReactElement" class="headerlink" title="ReactElement"></a>ReactElement</h1><h2 id="common-field"><a href="#common-field" class="headerlink" title="common field"></a>common field</h2><ul><li>$$typeof: REACT_ELEMENT_TYPE</li><li>type: function or constructor</li><li>key: string</li><li>ref: ref</li><li>props: props</li><li>_owner: owner</li></ul><h2 id="development"><a href="#development" class="headerlink" title="development"></a>development</h2><ul><li>_store: object</li><li>_store.validated: boolean</li><li>__self: _self</li><li>_source: source // source file</li></ul><h2 id="field"><a href="#field" class="headerlink" title="field"></a>field</h2><h3 id="updater-classComponentUpdater"><a href="#updater-classComponentUpdater" class="headerlink" title="updater = classComponentUpdater"></a>updater = classComponentUpdater</h3><h2 id="field-Of-protoType"><a href="#field-Of-protoType" class="headerlink" title="field Of protoType"></a>field Of protoType</h2><h2 id="Function-Of-prototype"><a href="#Function-Of-prototype" class="headerlink" title="Function Of prototype"></a>Function Of prototype</h2><h3 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h3><h3 id="element-is-freeze"><a href="#element-is-freeze" class="headerlink" title="element is freeze"></a>element is freeze</h3><h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><h3 id="WorkInProgress"><a href="#WorkInProgress" class="headerlink" title="WorkInProgress"></a>WorkInProgress</h3>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
